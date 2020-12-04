@@ -26,8 +26,6 @@ function useForm(callback, validate) {
     }
 
     useEffect(() => {
-        //The Object.keys() method returns an array of a given object's own enumerable property names, 
-        //iterated in the same order that a normal loop would.
         if(Object.keys(errors).length === 0 && isSubmitting) {
             callback();
         }
