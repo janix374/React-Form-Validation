@@ -1,24 +1,35 @@
-import React from 'react';
-import useForm from '../validation/useForm';
+import React, { useState } from 'react';
 import { Grid, TextField, Button  } from '@material-ui/core';
-import validate from '../validation/validation';
+import useForm from './../validation/useForm';
+import validation from './../validation/validation';
 
-function FormSignup({ submitForm }) {
-    const { handleChange, handleSubmit, values, errors } = useForm(submitForm, validate);
+const initialState = {
+    email: '',
+    password: ''
+}
+
+function FormSignup() {
+    const { values, handleChange, handleSubmit, errors } = useForm(submit, initialState, validation);
+
+    function submit() {
+        console.log('submit succesfully');
+    } 
+
     return (
         <Grid item sm={12} >
-           <form onSubmit={handleSubmit} >
+           <form  onSubmit={handleSubmit} >
                <div className="my-3 center"><h2>Singup</h2></div>
                <div className="my-3 center">
-                    <TextField
+                    {/* <TextField
                         // required
                         label="Enter your username"
+                        type="text"
                         variant="filled"
                         name="username"
-                        value={values.username}
+                        value={values.username || ''}
                         onChange={handleChange}
-                    />
-                    {errors.username && <p className="red">{errors.username}</p>}
+                    /> */}
+                   {/* {errors.username && <div className="error">{errors.username}</div>}  */}
                </div>
                <div className="my-3 center">
                     <TextField
@@ -27,10 +38,10 @@ function FormSignup({ submitForm }) {
                         variant="filled"
                         name="email"
                         type="email"
-                        value={values.email}
+                        value={values.email || ''}
                         onChange={handleChange}
                     />
-                     {errors.email && <p className="red">{errors.email}</p>}
+                     {errors.email && <div className="error">{errors.email}</div>}
                </div>
                <div className="my-3 center">
                     <TextField
@@ -39,22 +50,22 @@ function FormSignup({ submitForm }) {
                         type="password"
                         name="password"
                         variant="filled"
-                        value={values.password}
+                        value={values.password || ''}
                         onChange={handleChange}
                     />
-                    {errors.password && <p className="red">{errors.password}</p>}
+                    {errors.password && <div className="error">{errors.password}</div>}
                </div>
                <div className="my-3 center">
-                    <TextField
+                    {/* <TextField
                         // required
                         label="Confirm Password"
                         type="password"
                         name="confirmpassword"
                         variant="filled"
-                        value={values.confirmpassword}
+                        value={values.confirmpassword || ''}
                         onChange={handleChange}
-                    />
-                    {errors.confirmpassword && <p className="red">{errors.confirmpassword}</p>}
+                    /> */}
+                   {/* {errors.confirmpassword && <div className="error">{errors.confirmpassword}</div>} */}
                </div>
                <div className="my-3 center">
                 <Button variant="contained" color="primary" type="submit">

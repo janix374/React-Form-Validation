@@ -14,7 +14,7 @@ function FormComponent() {
         <Grid container>
             <Grid item xs={6} className="rocket" ></Grid>
             <Grid item xs={6} >
-            {!isSubmitted ? (<FormSignup submitForm={submitForm} />): (<FormSuccess />)}
+            {!isSubmitted ? (<FormSignup />): (<FormSuccess />)}
             </Grid>
          </Grid>
     )
