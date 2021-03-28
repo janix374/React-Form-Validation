@@ -7,7 +7,7 @@ const useForm = (callback, initialState = {}, validate) => {
 
     const handleChange = e => {
         const { name, value } = e.target;
-        setValues({ ...values, [name]: value })
+        setValues({ ...values, [name]: value.trim() })
     }
 
     const handleSubmit = (e) => {
@@ -18,10 +18,11 @@ const useForm = (callback, initialState = {}, validate) => {
 
     useEffect(() => {
         if (Object.keys(errors).length === 0 && isSubmitting) {
-          callback();
+          callback(values);
         }
       }, [errors]);
 
+      console.log(errors);
     return {
         handleChange,
         handleSubmit,
