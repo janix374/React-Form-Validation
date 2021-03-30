@@ -22,7 +22,6 @@ const useForm = (callback, initialState = {}, validate) => {
         }
       }, [errors]);
 
-      console.log(errors);
     return {
         handleChange,
         handleSubmit,

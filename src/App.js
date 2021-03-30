@@ -5,14 +5,14 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    HashRouter
   } from 'react-router-dom';
 import Home from './components/Home';
 import FormOne from './components/forms/FormOne';
 import FormTwo from './components/forms/FormTwo';
 import NavBar from './components/NavBar';
 import FormSuccess from './components/forms/FormSuccess';
-
+import NotFoundPage from './components/NotFoundPage';
 
 const theme = createMuiTheme({
     palette: {
@@ -24,7 +24,7 @@ const theme = createMuiTheme({
 function App() {
     return (
         <ThemeProvider theme={theme}>
-            <Router>
+            <HashRouter basename="/">
             <Grid container className="containerApp" >
             {/* <CssBaseline /> */}
                 <NavBar />
@@ -41,9 +41,12 @@ function App() {
                 <Route path="/success">
                     <FormSuccess />
                 </Route>
+                <Route >
+                    <NotFoundPage />
+                </Route>
                 </Switch>
             </Grid >
-            </Router>
+            </HashRouter >
         </ThemeProvider>
   );
 }

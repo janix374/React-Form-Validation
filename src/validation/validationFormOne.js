@@ -28,6 +28,7 @@ function validation(values) {
 
    // confirmpassword validation
    const confirmpasswordCheck = validationField(confirmpassword,[
+    isRequired(),
     isEqual(password, confirmpassword, 'Password and confirm password are not equal!')
   ]);
 
