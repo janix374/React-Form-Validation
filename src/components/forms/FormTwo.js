@@ -12,7 +12,7 @@ import {
     InputLabel,
     MenuItem,
     Select } from '@material-ui/core';
-import useForm from '../../validation/useForm';
+import useForm from '../useFormHook/useForm';
 import validation from '../../validation/validationFormTwo';
 import { makeStyles } from '@material-ui/core/styles';
 import PlayCircleOutlineOutlinedIcon from '@material-ui/icons/PlayCircleOutlineOutlined';
@@ -20,7 +20,7 @@ import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     formClass:{
-        color: '#3A2B69'
+        color: '#000'
     }
 });
 
@@ -108,7 +108,7 @@ function FormTwo() {
                         Validation rules
                     </Typography>
                     
-                    <List component="nav" aria-label="main mailbox folders">
+                    <List component="nav" >
                         <Typography variant="h6" component="p">     
                         username:
                         </Typography>

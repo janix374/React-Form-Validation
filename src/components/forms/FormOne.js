@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Grid, TextField, Button, Typography, List, ListItem, ListItemText, ListItemIcon } from '@material-ui/core';
-import useForm from '../../validation/useForm';
+import useForm from '../useFormHook/useForm';
 import validation from '../../validation/validationFormOne';
 import { makeStyles } from '@material-ui/core/styles';
 import PlayCircleOutlineOutlinedIcon from '@material-ui/icons/PlayCircleOutlineOutlined';
@@ -8,8 +8,8 @@ import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles({
     formClass:{
-        color: '#3A2B69'
-    }
+        color: '#000'
+    },
 });
 
 const initialState = {
@@ -104,7 +104,7 @@ function FormOne() {
                             <ListItemIcon>
                                 <PlayCircleOutlineOutlinedIcon />
                             </ListItemIcon>
-                            <ListItemText primary="is required" />
+                            <ListItemText primary="is required"/>
                         </ListItem>
                         <ListItem >
                             <ListItemIcon>

@@ -1,6 +1,6 @@
 import validationField from './validationLib/validationField';
-import validationfunctions from './validationLib/utilities';
-const { isRequired, isEmailValid, isMinLength, isLengthRange, isEqual } = validationfunctions;
+import utilities from './validationLib/utilities';
+const { isRequired, isEmailValid, isMinLength, isLengthRange, isEqual } = utilities;
 
 function validation(values) {
   const { email, password, username, confirmpassword } = values;

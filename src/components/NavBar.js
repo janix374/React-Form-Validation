@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles({
   appClass: {
-    backgroundColor: '#3a2b69',
+    backgroundColor: '#4cafd0',
   },
   linkClass: {
       textDecoration: 'none'

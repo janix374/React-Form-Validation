@@ -40,7 +40,7 @@ import isRegExValidation from './validateFunction/isRegExValidation';
  * 
  */
 
-const validationfunctions = {
+const utilities = {
     isRequired,
     isEmailValid,
     isMinLength,
@@ -51,4 +51,4 @@ const validationfunctions = {
     isRegExValidation
   }
 
-  export default validationfunctions;
+  export default utilities;

@@ -1,9 +1,9 @@
 import validationField from './validationLib/validationField';
-import validationfunctions from './validationLib/utilities';
-const { isRequired, isEmailValid, isMinLength, isMaxLength, isLengthRange, isRegExValidation } = validationfunctions;
+import utilities from './validationLib/utilities';
+const { isRequired, isEmailValid, isLengthRange, isRegExValidation } = utilities;
 
 function validation(values) {
-  const { email, password, username, confirmpassword } = values;
+  const { email, password, username } = values;
   let errors = {}
 
 // email validation

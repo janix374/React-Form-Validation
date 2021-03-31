@@ -8,7 +8,7 @@ body {
     font-family: Roboto;
     margin: 0;
     padding: 0;
-    background-color: #3a2b69;
+    background-color: #4cafd0;
     // color: #fff;
     }
 
@@ -20,34 +20,32 @@ body {
 
 .containerApp {
     background-color: #fff;
-    color:#3a2b69;
+    color:#000;
 }
 
 .red {
     color: rgb(199, 54, 54);
 }
 
-.rocket{
-    background-image: url('https://i.ytimg.com/vi/bM7BUcwpWJs/maxresdefault.jpg');
+.rocket {
+    // background-image: url('https://i.ytimg.com/vi/bM7BUcwpWJs/maxresdefault.jpg');
+    background-image: url('https://images.unsplash.com/photo-1554080204-5c97677848bd?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzN8fG9uZSUyMGNvbG9yfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
     background-repeat: no-repeat;
-    background-color: #cccccc;
+    background-color: #fff;
     background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: cover; /* Resize the background image to cover the entire container */
-    // height:80vh;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height:90vh;
     padding: 20px;
-    color: #F8EBFF;
+    color: #000;
 }
 
 .error {
     color: #CB5270;
 }
 
-.singup {
-    color: #CB5270;  
-}
-
 .for-rules-class {
     font-weight: bold;
 }
-

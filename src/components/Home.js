@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Typography, Link } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import validation from './../validation/validationFormOne';
 
 const useStyles = makeStyles({
     homeClass: {
@@ -17,9 +18,12 @@ const Home = () => {
                     Form field validation project using reusable custom hooks
                </Typography>
                <Typography variant="h6" component="p">     
-                  To validate the fields I create the function validationField(field, rules) which receives two arguments.
-                  The first argument is the field for which validation is performed, and secound one is array of validation rules. 
-                  Validation rules are easily added to the array.
+                 The useForm hook manages the states of forms. To validate the fields I create the function validationField(field, arrayOfValidationRules) 
+                 - first argument is value of field, secound argument is array of validation rules. Validation rules are in the object utilities.
+                 This function validationField returns error message if the field has not passed validation. Preview of code for validation - 
+                  <Link href="https://github.com/janix374/React-Form-Validation/tree/main/src/validation" rel="noopener noreferrer" target="_blank">
+                    https://github.com/janix374/React-Form-Validation/tree/main/src/validation
+                  </Link>     
                </Typography>
            </Grid>
            <Grid item xs={12} container className="p-3">
@@ -94,7 +98,7 @@ const Home = () => {
                </Grid>
                <Grid item xs={12} className="p-1">
                   <Typography variant="body1" component="p">     
-                      <span className="for-rules-class">isRegExValidation(regExMin, regExMax)</span> - Already a defined function 
+                      <span className="for-rules-class">isRegExValidation(regExMin, regExMax)</span> - Already a defined regular expression 
                   </Typography>
                   <Typography variant="body1" component="p">     
                     Minimum 6 and maximum 15 characters, at least one uppercase letter, one lowercase letter, one number and one special character  
