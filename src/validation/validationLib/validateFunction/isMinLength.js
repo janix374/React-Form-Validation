@@ -1,5 +1,5 @@
-export default  (minCharacter, fieldMessage) => (value) => {
-  if (fieldMessage == undefined) fieldMessage = `must be at least ${minCharacter} characters`;
+export default  (minCharacter, fieldMessage = null) => (value) => {
+  if (fieldMessage == null) fieldMessage = `must be at least ${minCharacter} characters`;
     if(value.length < minCharacter){
         return `${fieldMessage}`;
       }

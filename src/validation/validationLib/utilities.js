@@ -24,12 +24,12 @@ import isRegExValidation from './validateFunction/isRegExValidation';
   number - max number of characters
   message - Optional, error message
  
- * isLengthRange(minNumber, maxNumber, messageMin, messageMax)
+ * isLengthRange(minNumber, maxNumber, message)
   Adequate replacement for  isMinLength and isMaxLength
   minNumber - minimum number of characters
   maxNumber - maximum number of characters
-  messageMin - Optional, error message for min
-  messageMax - Optional, error message for max
+  message - Optional, error message for min and max characters
+
  
  * isCustomRegExValidation(regEx, regExMessage);
   regEx - custom regular expression

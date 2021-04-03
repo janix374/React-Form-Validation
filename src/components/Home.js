@@ -70,7 +70,7 @@ const Home = () => {
                </Grid>
                <Grid item xs={12} className="p-1">
                   <Typography variant="body1" component="p">     
-                      <span className="for-rules-class">isLengthRange(minNumber, maxNumber, messageMin, messageMax)</span> - between min and max number of characters  
+                      <span className="for-rules-class">isLengthRange(minNumber, maxNumber, message)</span> - between min and max number of characters  
                   </Typography>
                   <Typography variant="body1" component="p">     
                     minNumber - minimum number of characters
@@ -79,10 +79,7 @@ const Home = () => {
                     maxNumber - maximum number of characters
                   </Typography>
                   <Typography variant="body1" component="p">     
-                    messageMin - Optional, error message for min
-                  </Typography>
-                  <Typography variant="body1" component="p">     
-                    messageMax - Optional, error message for max
+                    message - Optional, error message for min and max characters
                   </Typography>
                </Grid>
                <Grid item xs={12} className="p-1">

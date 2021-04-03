@@ -39,7 +39,8 @@ function validation(values) {
   // username validation
   const usernameCheck = validationField(username,[
     isRequired('User name is required'),
-    isLengthRange(3,20)
+    // isLengthRange(3,20)
+    isLengthRange(3,7)
   ])
 
   if(usernameCheck){

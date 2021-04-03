@@ -1,12 +1,8 @@
-export default (minCharacter, maxCharacter, fieldMessageMin, fieldMessageMax) => (value) => {
-    if (fieldMessageMin == undefined) fieldMessageMin = `Must be a minimum of ${minCharacter} characters`;
-    if (fieldMessageMax == undefined) fieldMessageMax = `Must be a maximum of ${maxCharacter} characters`;
+export default (minCharacter, maxCharacter, fieldMessage = null) => (value) => {
+    if (fieldMessage == null) fieldMessage = `Must be a minimum of ${minCharacter} and maximum ${maxCharacter} characters`;
 
-    if(value.length < minCharacter){
-        return `${fieldMessageMin}`;
+    if(value.length < minCharacter || value.length > maxCharacter){
+        return `${fieldMessage}`;
       }
-   
-    if(value.length > maxCharacter){
-        return `${fieldMessageMax}`;
-    }
+
   }
