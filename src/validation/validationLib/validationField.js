@@ -7,12 +7,32 @@
  * [array] arrays of rules for validation view in utilities files
  */
   
-const validationField = (field, arrayOfValidationFunction) => {
+export function validationField(field, arrayOfValidationFunction){
     const arrayOfValidationFunctionInvok = arrayOfValidationFunction.map(fn => (fn(field)));
     const arrayOfValidationFunctionMessages = arrayOfValidationFunctionInvok.filter(item => item !== undefined);
-    // return arrayOfMessages;
     const firstMessage = arrayOfValidationFunctionMessages[0];
-    return firstMessage;
+    if(firstMessage) {
+      return firstMessage;
+    } else {
+      return null
+    }
+  
 }
 
-  export default validationField;
+
+
+/**
+ * clean()
+ * The clean function is used to clear all null and undifind values of object properties
+ * 
+ */
+export function clean(obj){
+  for (let propName in obj) {
+    if (obj[propName] === null || obj[propName] === undefined) {
+      delete obj[propName];
+    }
+  }
+  return obj
+}
+
+// export default validationField;

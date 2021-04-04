@@ -1,41 +1,32 @@
-import validationField from './validationLib/validationField';
+import { validationField, clean } from './validationLib/validationField';
 import utilities from './validationLib/utilities';
 const { isRequired, isEmailValid, isLengthRange, isRegExValidation } = utilities;
 
 function validation(values) {
   const { email, password, username } = values;
-  let errors = {}
+  let fields = {}
 
 // email validation
-  const emailCheck = validationField(email, [
+fields.email = validationField(email, [
     isRequired(),
     isEmailValid()
   ]);
 
-  if(emailCheck){
-    errors.email = emailCheck;
-  }
 
   // password validation
-  const passwordCheck = validationField(password,[
+  fields.password = validationField(password,[
     isRequired('Password is required'),
     isRegExValidation()
   ])
 
-  if(passwordCheck){
-    errors.password = passwordCheck;
-  }
 
   // username validation
-  const usernameCheck = validationField(username,[
+  fields.username = validationField(username,[
     isRequired('User name is required'),
     isLengthRange(5,15)
-  ])
+  ]);
 
-  if(usernameCheck){
-    errors.username = usernameCheck;
-  }
-
+  let errors = clean(fields);
   return errors;
 }
 

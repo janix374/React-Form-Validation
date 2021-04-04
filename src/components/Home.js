@@ -20,7 +20,7 @@ const Home = () => {
                <Typography variant="h6" component="p">     
                  The useForm hook manages the states of forms. To validate the fields I create the function validationField(field, arrayOfValidationRules) 
                  - first argument is value of field, secound argument is array of validation rules. Validation rules are in the object utilities.
-                 This function validationField returns error message if the field has not passed validation. Preview of code for validation - 
+                 This function validationField returns error message if the field has not passed validation or null if they have passed validation. Preview of code for validation - 
                   <Link href="https://github.com/janix374/React-Form-Validation/tree/main/src/validation" rel="noopener noreferrer" target="_blank">
                     https://github.com/janix374/React-Form-Validation/tree/main/src/validation
                   </Link>     

@@ -1,52 +1,33 @@
-import validationField from './validationLib/validationField';
+import { validationField, clean } from './validationLib/validationField';
 import utilities from './validationLib/utilities';
 const { isRequired, isEmailValid, isMinLength, isLengthRange, isEqual } = utilities;
 
 function validation(values) {
   const { email, password, username, confirmpassword } = values;
-  let errors = {}
+  let fields = {}
 
-//email validation
-  const emailCheck = validationField(email, [
+  fields.email = validationField(email, [
     isRequired(),
     isEmailValid()
   ]);
 
-  if(emailCheck){
-    errors.email = emailCheck;
-  }
-
-  // password validation
-  const passwordCheck = validationField(password,[
+  fields.password = validationField(password,[
     isRequired('Password is required'),
     isMinLength(6)
-  ])
+  ]);
 
-  if(passwordCheck){
-    errors.password = passwordCheck;
-  }
-
-   // confirmpassword validation
-   const confirmpasswordCheck = validationField(confirmpassword,[
+  fields.confirmpassword = validationField(confirmpassword,[
     isRequired(),
     isEqual(password, confirmpassword, 'Password and confirm password are not equal!')
   ]);
 
-  if(confirmpasswordCheck){
-    errors.confirmpassword = confirmpasswordCheck;
-  }
-
-  // username validation
-  const usernameCheck = validationField(username,[
+  fields.username = validationField(username,[
     isRequired('User name is required'),
-    // isLengthRange(3,20)
-    isLengthRange(3,7)
-  ])
+    isLengthRange(3,20)
+  ]);
 
-  if(usernameCheck){
-    errors.username = usernameCheck;
-  }
-
+  
+  let errors = clean(fields);
   return errors;
 }
 
