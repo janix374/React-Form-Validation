@@ -6,21 +6,16 @@ function validation(values) {
   const { email, password, username } = values;
   let fields = {}
 
-// email validation
 fields.email = validationField(email, [
     isRequired(),
     isEmailValid()
   ]);
 
-
-  // password validation
   fields.password = validationField(password,[
     isRequired('Password is required'),
     isRegExValidation()
   ])
 
-
-  // username validation
   fields.username = validationField(username,[
     isRequired('User name is required'),
     isLengthRange(5,15)
