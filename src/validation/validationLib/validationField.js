@@ -4,7 +4,6 @@
  * field a parameter that comes through validation(values)
  * [array] arrays of rules for validation view in utilities files
  */
-
 export function validationField(field, arrayOfValidationFunction){
     const arrayOfValidationFunctionInvok = arrayOfValidationFunction.map(fn => (fn(field)));
     const arrayOfValidationFunctionMessages = arrayOfValidationFunctionInvok.filter(item => item !== undefined);
