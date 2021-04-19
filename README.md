@@ -1,6 +1,7 @@
 # React - form - validation
 Form validation in react - reusable custom hooks for management fields value, reusable 
-functions for easier validation management and errors handling.
+functions for easier validation management and errors handling - custom validator.
+
 
 This project was bootstrapped with webpack, react, material ui, sass.
 
