@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     Grid,
     TextField,
@@ -8,49 +8,49 @@ import {
     ListItem,
     ListItemText,
     ListItemIcon,
-    FormControl,
-    InputLabel,
-    MenuItem,
-    Select
+    TextareaAutosize
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import PlayCircleOutlineOutlinedIcon from '@material-ui/icons/PlayCircleOutlineOutlined';
 import { useHistory } from 'react-router-dom';
-import validation from '../../validation/validationFormTwo';
+import validation from '../../validation/validationFormThree';
 import useForm from '../useFormHook/useForm';
 
 const useStyles = makeStyles({
     formClass: {
         color: '#000'
+    },
+    widthOfTextArea: {
+        width: '80%'
     }
 });
 
 const initialState = {
     username: '',
-    email: '',
-    password: '',
-    option: 'option1'
+    usertext: ''
 };
 
-function FormTwo() {
+function FormThree() {
     const history = useHistory();
     const classes = useStyles();
+
+    function submit(data) {
+        console.log(data);
+        //     history.push({
+        //         pathname: '/success',
+        //         state: data
+        //     });
+    }
+
     const { values, handleChange, handleSubmit, errors } = useForm(
         submit,
         initialState,
         validation
     );
 
-    function submit(data) {
-        history.push({
-            pathname: '/success',
-            state: data
-        });
-    }
-
     return (
         <Grid container justify="center" alignItems="center">
-            <Grid item sm={12} sm={6} className={classes.formClass}>
+            <Grid item xs={12} sm={6} className={classes.formClass}>
                 <div className="my-3 center">
                     <h2 className="singup">Register</h2>
                 </div>
@@ -67,36 +67,16 @@ function FormTwo() {
                         {errors.username && <div className="error">{errors.username}</div>}
                     </div>
                     <div className="my-3 center">
-                        <TextField
-                            label="Enter your email"
-                            variant="filled"
-                            name="email"
-                            type="email"
-                            value={values.email || ''}
+                        <TextareaAutosize
+                            className={classes.widthOfTextArea}
+                            aria-label="minimum height"
+                            rowsMin={10}
+                            placeholder="user text"
+                            value={values.usertext || ''}
+                            name="usertext"
                             onChange={handleChange}
                         />
-                        {errors.email && <div className="error">{errors.email}</div>}
-                    </div>
-                    <div className="my-3 center">
-                        <TextField
-                            label="Password"
-                            type="password"
-                            name="password"
-                            variant="filled"
-                            value={values.password || ''}
-                            onChange={handleChange}
-                        />
-                        {errors.password && <div className="error">{errors.password}</div>}
-                    </div>
-                    <div className="my-3 center">
-                        <select
-                            name="option"
-                            value={values.option || 'option1'}
-                            onChange={handleChange}>
-                            <option value="option1">option1</option>
-                            <option value="option2">option2</option>
-                            <option value="option3">option3</option>
-                        </select>
+                        {errors.usertext && <div className="error">{errors.usertext}</div>}
                     </div>
                     <div className="my-3 center">
                         <Button variant="contained" color="primary" type="submit">
@@ -110,7 +90,7 @@ function FormTwo() {
                     Validation rules
                 </Typography>
 
-                <List component="nav">
+                <List component="nav" aria-label="main mailbox folders">
                     <Typography variant="h6" component="p">
                         username:
                     </Typography>
@@ -124,43 +104,19 @@ function FormTwo() {
                         <ListItemIcon>
                             <PlayCircleOutlineOutlinedIcon />
                         </ListItemIcon>
-                        <ListItemText primary="number of characters in between 5 and 15" />
+                        <ListItemText primary="number of characters in between 3 and 20" />
                     </ListItem>
                 </List>
 
                 <List component="nav" aria-label="main mailbox folders">
                     <Typography variant="h6" component="p">
-                        email:
+                        usertext:
                     </Typography>
                     <ListItem>
                         <ListItemIcon>
                             <PlayCircleOutlineOutlinedIcon />
                         </ListItemIcon>
-                        <ListItemText primary="is required" />
-                    </ListItem>
-                    <ListItem>
-                        <ListItemIcon>
-                            <PlayCircleOutlineOutlinedIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="valid email" />
-                    </ListItem>
-                </List>
-
-                <List component="nav" aria-label="main mailbox folders">
-                    <Typography variant="h6" component="p">
-                        password:
-                    </Typography>
-                    <ListItem>
-                        <ListItemIcon>
-                            <PlayCircleOutlineOutlinedIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="is required" />
-                    </ListItem>
-                    <ListItem>
-                        <ListItemIcon>
-                            <PlayCircleOutlineOutlinedIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="Minimum 6 and maximum 15 characters, at least one uppercase letter, one lowercase letter, one number and one special character" />
+                        <ListItemText primary="number of characters max 250" />
                     </ListItem>
                 </List>
             </Grid>
@@ -168,4 +124,4 @@ function FormTwo() {
     );
 }
 
-export default FormTwo;
+export default FormThree;

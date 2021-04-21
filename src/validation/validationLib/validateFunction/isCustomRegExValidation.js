@@ -1,5 +1,5 @@
-export default  (regEx, regExMessage) => (value) => {
-      if(!regEx.test(value)){
-          return `${regExMessage}`;
-        }
-  }
+export default (regEx, regExMessage) => (value) => {
+    if (!regEx.test(value)) {
+        return `${regExMessage}`;
+    }
+};

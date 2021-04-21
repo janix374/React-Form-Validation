@@ -5,22 +5,22 @@ const useForm = (callback, initialState = {}, validate) => {
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const handleChange = e => {
+    const handleChange = (e) => {
         const { name, value } = e.target;
-        setValues({ ...values, [name]: value.trim() })
-    }
+        setValues({ ...values, [name]: value.trim() });
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrors(validate(values));
         setIsSubmitting(true);
-    } 
+    };
 
     useEffect(() => {
         if (Object.keys(errors).length === 0 && isSubmitting) {
-          callback(values);
+            callback(values);
         }
-      }, [errors]);
+    }, [errors]);
 
     return {
         handleChange,
@@ -28,6 +28,6 @@ const useForm = (callback, initialState = {}, validate) => {
         values,
         errors
     };
-}
+};
 
 export default useForm;

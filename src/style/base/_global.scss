@@ -8,8 +8,9 @@ body {
     font-family: Roboto;
     margin: 0;
     padding: 0;
-    background-color: #4cafd0;
-    // color: #fff;
+    // background-color: #4cafd0;
+    background-color: #c2dde6;
+    color: #e6e9f0;
     }
 
 .center {
@@ -19,31 +20,20 @@ body {
 }
 
 .containerApp {
-    background-color: #fff;
+    background-color: #e6e9f0;
     color:#000;
 }
 
 .red {
-    color: rgb(199, 54, 54);
+    color: #000;
 }
 
 .rocket {
-    // background-image: url('https://i.ytimg.com/vi/bM7BUcwpWJs/maxresdefault.jpg');
-    background-image: url('https://images.unsplash.com/photo-1554080204-5c97677848bd?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MzN8fG9uZSUyMGNvbG9yfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');
-    background-repeat: no-repeat;
-    background-color: #fff;
-    background-position: center; /* Center the image */
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    height:90vh;
-    padding: 20px;
     color: #000;
 }
 
 .error {
-    color: #CB5270;
+    color: #000;
 }
 
 .for-rules-class {

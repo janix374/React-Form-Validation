@@ -49,6 +49,6 @@ const utilities = {
     isEqual,
     isCustomRegExValidation,
     isRegExValidation
-  }
+};
 
-  export default utilities;
+export default utilities;

@@ -1,23 +1,18 @@
 import { validationField, clean } from './validationLib/validationField';
 import utilities from './validationLib/utilities';
 
-const { isRequired, isEmailValid, isLengthRange, isRegExValidation } = utilities;
+const { isRequired, isLengthRange, isMaxLength } = utilities;
 
 function validation(values) {
-    const { email, password, username } = values;
+    const { username, fileInput } = values;
     const fields = {};
-
-    fields.email = validationField(email, [isRequired(), isEmailValid()]);
-
-    fields.password = validationField(password, [
-        isRequired('Password is required'),
-        isRegExValidation()
-    ]);
 
     fields.username = validationField(username, [
         isRequired('User name is required'),
-        isLengthRange(5, 15)
+        isLengthRange(3, 20)
     ]);
+
+    fields.fileInput = validationField(fileInput, [isRequired('Upload file is required')]);
 
     const errors = clean(fields);
     return errors;
