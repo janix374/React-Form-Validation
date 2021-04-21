@@ -17,7 +17,7 @@ function FormSuccess(props) {
             <Grid item xs={12}>
                 <Box>
                     <Typography variant="h3" component="p">
-                        We have recived your request!
+                        Your request!
                     </Typography>
                 </Box>
             </Grid>

@@ -150,8 +150,55 @@ const Home = () => {
                         lowercase letter, one number and one special character
                     </Typography>
                 </Grid>
+                <Grid item xs={12} className="p-1">
+                    <Typography variant="body1" component="p">
+                        <span className="for-rules-class">
+                            isEqual(firsField, secondField, message)
+                        </span>{' '}
+                        - comparing the firsField and secondField fields to see if they are equal
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        firsField - first field to compare
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        secondField - secound field to compare
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        message - Optional, you can add your own error message
+                    </Typography>
+                </Grid>
+                <Grid item xs={12} className="p-1">
+                    <Typography variant="body1" component="p">
+                        <span className="for-rules-class">
+                            fileMaxSizeValidation(size, message)
+                        </span>{' '}
+                        - max size of upload file in bytes.
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        size - max size
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        message - Optional, you can add your own error message
+                    </Typography>
+                </Grid>
+                <Grid item xs={12} className="p-1">
+                    <Typography variant="body1" component="p">
+                        <span className="for-rules-class">
+                            fileRangeSizeValidation(minSize, maxSize, message)
+                        </span>{' '}
+                        - between min and max file size.
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        minSize - min size
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                         maxSize - max size
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        message - Optional, you can add your own error message
+                    </Typography>
+                </Grid>
             </Grid>
-            {/* <Ala /> */}
         </Grid>
     );
 };

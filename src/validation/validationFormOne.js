@@ -3,6 +3,7 @@ import utilities from './validationLib/utilities';
 
 const { isRequired, isEmailValid, isMinLength, isLengthRange, isEqual } = utilities;
 
+// validation for FormOne component form
 function validation(values) {
     const { email, password, username, confirmpassword } = values;
     const fields = {};

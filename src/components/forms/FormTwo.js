@@ -35,11 +35,6 @@ const initialState = {
 function FormTwo() {
     const history = useHistory();
     const classes = useStyles();
-    const { values, handleChange, handleSubmit, errors } = useForm(
-        submit,
-        initialState,
-        validation
-    );
 
     function submit(data) {
         history.push({
@@ -48,9 +43,15 @@ function FormTwo() {
         });
     }
 
+    const { values, handleChange, handleSubmit, errors } = useForm(
+        submit,
+        initialState,
+        validation
+    );
+
     return (
         <Grid container justify="center" alignItems="center">
-            <Grid item sm={12} sm={6} className={classes.formClass}>
+            <Grid item xs={12} sm={6} className={classes.formClass}>
                 <div className="my-3 center">
                     <h2 className="singup">Register</h2>
                 </div>

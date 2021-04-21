@@ -35,11 +35,10 @@ function FormThree() {
     const classes = useStyles();
 
     function submit(data) {
-        console.log(data);
-        //     history.push({
-        //         pathname: '/success',
-        //         state: data
-        //     });
+        history.push({
+            pathname: '/success',
+            state: data
+        });
     }
 
     const { values, handleChange, handleSubmit, errors } = useForm(

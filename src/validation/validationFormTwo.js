@@ -3,6 +3,7 @@ import utilities from './validationLib/utilities';
 
 const { isRequired, isEmailValid, isLengthRange, isRegExValidation } = utilities;
 
+// validation for FormTwo component form
 function validation(values) {
     const { email, password, username } = values;
     const fields = {};

@@ -6,6 +6,8 @@ import isLengthRange from './validateFunction/isLengthRange';
 import isEqual from './validateFunction/isEqual.js';
 import isCustomRegExValidation from './validateFunction/isCustomRegExValidation';
 import isRegExValidation from './validateFunction/isRegExValidation';
+import fileMaxSizeValidation from './validateFunction/fileMaxSizeValidation';
+import fileRangeSizeValidation from './validateFunction/fileRangeSizeValidation';
 
 /**
  * validationObject
@@ -30,13 +32,29 @@ import isRegExValidation from './validateFunction/isRegExValidation';
   maxNumber - maximum number of characters
   message - Optional, error message for min and max characters
 
- 
  * isCustomRegExValidation(regEx, regExMessage);
   regEx - custom regular expression
   regExMessage - error message for regular expression
 
  // Already a defined function - Minimum 6 and maximum 15} characters, at least one uppercase letter, one lowercase letter, one number and one special character
  * isRegExValidation() 
+ 
+ * isEqual(firsField, secondField, message)
+ * comparing the firsField and secondField fields to see if they are equal
+ * firsField - first field to compare
+ * secondField - secound field to compare
+ * message - Optional, you can add your own error message
+ 
+ * fileMaxSizeValidation(size, message)
+ * max size of upload file in bytes.
+ * size - max size
+ * message - Optional, you can add your own error message
+ 
+ * fileRangeSizeValidation(minSize, maxSize, message)
+ * between min and max file size.
+ *  minSize - min size.
+ * maxSize - max size
+ * message - Optional, you can add your own error message
  * 
  */
 
@@ -48,7 +66,9 @@ const utilities = {
     isLengthRange,
     isEqual,
     isCustomRegExValidation,
-    isRegExValidation
+    isRegExValidation,
+    fileMaxSizeValidation,
+    fileRangeSizeValidation
 };
 
 export default utilities;

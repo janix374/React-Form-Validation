@@ -50,7 +50,8 @@ function FormFour() {
         setErrors(validation(values));
     };
 
-    console.log(errors);
+    // console.log(fileInput);
+    // console.log(errors);
     return (
         <Grid container justify="center" alignItems="center">
             <Grid item xs={12} sm={6} className={classes.formClass}>
