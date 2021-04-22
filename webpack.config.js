@@ -13,10 +13,10 @@ module.exports = {
         rules: [
             {
                 test: /\.s?css$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader']
             },
             {
-                test: /\.(png|jpg|svg)$/,
+                test: /\.(png|jpg|jpeg|svg)$/i,
                 type: 'asset/resource'
             },
             {

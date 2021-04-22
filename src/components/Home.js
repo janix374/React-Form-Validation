@@ -1,19 +1,11 @@
 import React from 'react';
 import { Grid, Typography, Button, Box, Link } from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
 import Icon from '@material-ui/core/Icon';
 import { Link as RouteLink } from 'react-router-dom';
 
-const useStyles = makeStyles({
-    homeClass: {
-        paddingTop: '20px'
-    }
-});
-
 const Home = () => {
-    const classes = useStyles();
     return (
-        <Grid container className={classes.homeClass}>
+        <Grid container className="home-class">
             <Grid item xs={12} className="p-4">
                 <Typography variant="h4" component="p">
                     Form field validation project using reusable custom hooks

@@ -21,7 +21,7 @@ const useStyles = makeStyles({
         color: '#000'
     },
     widthOfTextArea: {
-        width: '80%'
+        width: '70%'
     }
 });
 
@@ -48,14 +48,15 @@ function FormThree() {
     );
 
     return (
-        <Grid container justify="center" alignItems="center">
+        <Grid container justify="center" alignItems="center" className="form-container">
             <Grid item xs={12} sm={6} className={classes.formClass}>
-                <div className="my-3 center">
-                    <h2 className="singup">Register</h2>
-                </div>
                 <form onSubmit={handleSubmit}>
                     <div className="my-3 center">
+                        <h2 className="singup">Register</h2>
+                    </div>
+                    <div className="my-3 center">
                         <TextField
+                            required
                             label="Enter your username"
                             type="text"
                             variant="filled"
@@ -63,7 +64,9 @@ function FormThree() {
                             value={values.username || ''}
                             onChange={handleChange}
                         />
-                        {errors.username && <div className="error">{errors.username}</div>}
+                        <div className="error">
+                            {errors.username && <div>{errors.username}</div>}
+                        </div>
                     </div>
                     <div className="my-3 center">
                         <TextareaAutosize
@@ -75,7 +78,9 @@ function FormThree() {
                             name="usertext"
                             onChange={handleChange}
                         />
-                        {errors.usertext && <div className="error">{errors.usertext}</div>}
+                        <div className="error">
+                            {errors.usertext && <div>{errors.usertext}</div>}
+                        </div>
                     </div>
                     <div className="my-3 center">
                         <Button variant="contained" color="primary" type="submit">

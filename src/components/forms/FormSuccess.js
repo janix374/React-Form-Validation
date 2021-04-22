@@ -6,6 +6,7 @@ function FormSuccess(props) {
     const { match, location, history } = props;
     const formState = history.location.state;
 
+    console.log(formState);
     return (
         <Grid
             container
@@ -13,32 +14,37 @@ function FormSuccess(props) {
             direction="column"
             alignItems="center"
             justify="center"
-            style={{ minHeight: '50vh' }}>
-            <Grid item xs={12}>
-                <Box>
-                    <Typography variant="h3" component="p">
-                        All fields have passed validation
-                    </Typography>
-                </Box>
-            </Grid>
-            <Grid item xs={6}>
-                <Box>
-                    {Object.keys(formState).map((keyName, keyIndex) => {
-                        if (typeof formState[keyName] === 'object') {
-                            return (
-                                <Typography variant="body1" component="p" key={keyName}>
-                                    {keyName}:'File'
-                                </Typography>
-                            );
-                        }
-                        return (
-                            <Typography variant="body1" component="p" key={keyName}>
-                                {keyName}:{formState[keyName]}
+            style={{ minHeight: '90vh' }}>
+            {formState && (
+                <>
+                    <Grid item xs={12}>
+                        <Box>
+                            <Typography variant="h3" component="p">
+                                All fields have passed validation
                             </Typography>
-                        );
-                    })}
-                </Box>
-            </Grid>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Box>
+                            {Object.keys(formState).map((keyName, keyIndex) => {
+                                if (typeof formState[keyName] === 'object') {
+                                    return (
+                                        <Typography variant="body1" component="p" key={keyName}>
+                                            {keyName}:[
+                                            {Object.values(formState[keyName]).toString()}]
+                                        </Typography>
+                                    );
+                                }
+                                return (
+                                    <Typography variant="body1" component="p" key={keyName}>
+                                        {keyName}:{formState[keyName]}
+                                    </Typography>
+                                );
+                            })}
+                        </Box>
+                    </Grid>
+                </>
+            )}
         </Grid>
     );
 }

@@ -8,19 +8,15 @@ body {
     font-family: Roboto;
     margin: 0;
     padding: 0;
-    // background-color: #4cafd0;
-    background-color: #c2dde6;
     color: #e6e9f0;
+    background-color: #c8d7db;
+    background-image: url('../images/a7.jpg');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
     }
 
-.center {
-    text-align: center;
-    justify-content: center;
-    margin: auto;
-}
-
 .containerApp {
-    background-color: #e6e9f0;
     color:#000;
 }
 
@@ -32,11 +28,38 @@ body {
     color: #000;
 }
 
-.error {
-    margin: 5px 5px;
-    color: rgb(236, 72, 72);
+.error{
+    color: #812A00;
+    height: 10px;
+    padding: 5px 0;
+    display: block;
 }
 
 .for-rules-class {
     font-weight: bold;
 }
+
+.center {
+    text-align: center;
+    justify-content: center;
+}
+
+.home-class {
+    padding-top: 20px;
+    min-height: 100%;
+}
+
+.form-container{
+    height: 90vh;
+}
+
+form { 
+    width: 60%;
+    margin: auto;
+    border: 3px solid #6D7C98;
+    background-color: #c8d7db;
+    padding: 1%;
+    opacity: 0.8;
+    border-radius: 2%;
+}
+

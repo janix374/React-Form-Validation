@@ -71,33 +71,37 @@ function FormFour() {
     }, [errors]);
 
     return (
-        <Grid container justify="center" alignItems="center">
+        <Grid container justify="center" alignItems="center" className="form-container">
             <Grid item xs={12} sm={6} className={classes.formClass}>
-                <div className="my-3 center">
-                    <h2 className="singup">Register</h2>
-                </div>
                 <form onSubmit={handleSubmit}>
+                    <div className="my-3 center">
+                        <h2 className="singup">Register</h2>
+                    </div>
                     <div className="my-3 center">
                         <TextField
                             label="Enter your username"
                             type="text"
-                            variant="filled"
+                            multiline
                             value={username}
                             onChange={handleChangeUserName}
                             name="username"
                         />
-                        {errors.username && <div className="error">{errors.username}</div>}
+                        <div className="error">
+                            {errors.username && <div>{errors.username}</div>}
+                        </div>
                     </div>
                     <div className="my-3 center">
                         <TextField
                             label="Enter your email"
-                            variant="filled"
+                            multiline
                             name="userEmail"
                             type="email"
                             value={userEmail}
                             onChange={handleChangeEmail}
                         />
-                        {errors.userEmail && <div className="error">{errors.userEmail}</div>}
+                        <div className="error">
+                            {errors.userEmail && <div>{errors.userEmail}</div>}
+                        </div>
                     </div>
                     <div className="my-3 center">
                         <input
@@ -119,7 +123,9 @@ function FormFour() {
                             id="icon-button-file"
                             type="file"
                         />
-                        {errors.fileInput && <div className="error">{errors.fileInput}</div>}
+                        <div className="error">
+                            {errors.fileInput && <div>{errors.fileInput}</div>}
+                        </div>
                     </div>
                     <div className="my-3 center">
                         <Button variant="contained" color="primary" type="submit">

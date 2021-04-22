@@ -46,12 +46,12 @@ function FormOne() {
     );
 
     return (
-        <Grid container justify="center" alignItems="center">
+        <Grid container justify="center" alignItems="center" className="form-container">
             <Grid item xs={12} sm={6} className={classes.formClass}>
-                <div className="my-3 center">
-                    <h2 className="singup">Register</h2>
-                </div>
                 <form onSubmit={handleSubmit}>
+                    <div className="my-3 center">
+                        <h2 className="singup">Register</h2>
+                    </div>
                     <div className="my-3 center">
                         <TextField
                             label="Enter your username"
@@ -61,7 +61,9 @@ function FormOne() {
                             value={values.username || ''}
                             onChange={handleChange}
                         />
-                        {errors.username && <div className="error">{errors.username}</div>}
+                        <div className="error">
+                            {errors.username && <div>{errors.username}</div>}
+                        </div>
                     </div>
                     <div className="my-3 center">
                         <TextField
@@ -72,7 +74,7 @@ function FormOne() {
                             value={values.email || ''}
                             onChange={handleChange}
                         />
-                        {errors.email && <div className="error">{errors.email}</div>}
+                        <div className="error">{errors.email && <div>{errors.email}</div>}</div>
                     </div>
                     <div className="my-3 center">
                         <TextField
@@ -83,7 +85,9 @@ function FormOne() {
                             value={values.password || ''}
                             onChange={handleChange}
                         />
-                        {errors.password && <div className="error">{errors.password}</div>}
+                        <div className="error">
+                            {errors.password && <div>{errors.password}</div>}
+                        </div>
                     </div>
                     <div className="my-3 center">
                         <TextField
@@ -94,9 +98,9 @@ function FormOne() {
                             value={values.confirmpassword || ''}
                             onChange={handleChange}
                         />
-                        {errors.confirmpassword && (
-                            <div className="error">{errors.confirmpassword}</div>
-                        )}
+                        <div className="error">
+                            {errors.confirmpassword && <div>{errors.confirmpassword}</div>}
+                        </div>
                     </div>
                     <div className="my-3 center">
                         <Button variant="contained" color="primary" type="submit">

@@ -87,12 +87,12 @@ function FormFive() {
     }, [errors]);
 
     return (
-        <Grid container justify="center" alignItems="center">
+        <Grid container justify="center" alignItems="center" className="form-container">
             <Grid item xs={12} sm={6} className={classes.formClass}>
-                <div className="my-3 center">
-                    <h2 className="singup">Register</h2>
-                </div>
                 <form onSubmit={handleSubmit}>
+                    <div className="my-3 center">
+                        <h2 className="singup">Register</h2>
+                    </div>
                     <div className="my-3 center">
                         <TextField
                             label="Enter your username"
@@ -102,7 +102,9 @@ function FormFive() {
                             onChange={handleChangeUserName}
                             name="username"
                         />
-                        {errors.username && <div className="error">{errors.username}</div>}
+                        <div className="error">
+                            {errors.username && <div>{errors.username}</div>}
+                        </div>
                     </div>
                     <div className="my-3 center">
                         <TextField
@@ -113,7 +115,7 @@ function FormFive() {
                             value={email}
                             onChange={handleChangeEmail}
                         />
-                        {errors.email && <div className="error">{errors.email}</div>}
+                        <div className="error">{errors.email && <div>{errors.email}</div>}</div>
                     </div>
                     <div className="my-3 center">
                         <FormControl component="fieldset">
@@ -153,7 +155,9 @@ function FormFive() {
                             }
                             label="Option B"
                         />
-                        {errors.buttonCheck && <div className="error">{errors.buttonCheck}</div>}
+                        <div className="error">
+                            {errors.buttonCheck && <div>{errors.buttonCheck}</div>}
+                        </div>
                     </div>
                     <div className="my-3 center">
                         <Button variant="contained" color="primary" type="submit">
