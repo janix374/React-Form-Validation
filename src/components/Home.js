@@ -21,10 +21,8 @@ const Home = () => {
                 <Typography variant="h6" component="p">
                     The useForm hook manages the states of forms. To validate the fields I create
                     the function validationField(field, arrayOfValidationRules) - first argument is
-                    value of field, secound argument is array of validation rules. Validation rules
-                    are in the object utilities. This function validationField returns error message
-                    if the field has not passed validation or null if they have passed validation.
-                    Preview of code for validation -
+                    value of field, secound argument is array of custom validation rules. Preview of
+                    code for validation -
                     <Link
                         href="https://github.com/janix374/React-Form-Validation/tree/main/src/validation"
                         rel="noopener noreferrer"
@@ -56,6 +54,11 @@ const Home = () => {
                     <RouteLink to="/formfour">
                         <Button variant="contained" color="default" endIcon={<Icon>send</Icon>}>
                             Form4
+                        </Button>
+                    </RouteLink>
+                    <RouteLink to="/formfive">
+                        <Button variant="contained" color="default" endIcon={<Icon>send</Icon>}>
+                            Form5
                         </Button>
                     </RouteLink>
                 </Box>
@@ -192,7 +195,31 @@ const Home = () => {
                         minSize - min size
                     </Typography>
                     <Typography variant="body1" component="p">
-                         maxSize - max size
+                        maxSize - max size
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        message - Optional, you can add your own error message
+                    </Typography>
+                </Grid>
+                <Grid item xs={12} className="p-1">
+                    <Typography variant="body1" component="p">
+                        <span className="for-rules-class">
+                            fileTypeValidation(allowedExtensions, message)
+                        </span>{' '}
+                        - File type validation.
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        allowedExtensions - array of file extensions which can be uploaded, for
+                        example ['jpg', 'jpeg', 'pdf']
+                    </Typography>
+                    <Typography variant="body1" component="p">
+                        message - Optional, you can add your own error message
+                    </Typography>
+                </Grid>
+                <Grid item xs={12} className="p-1">
+                    <Typography variant="body1" component="p">
+                        <span className="for-rules-class">IsOneButtonChecked(message)</span> At
+                        least one check box must be checked.
                     </Typography>
                     <Typography variant="body1" component="p">
                         message - Optional, you can add your own error message

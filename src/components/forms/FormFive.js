@@ -7,12 +7,18 @@ import {
     List,
     ListItem,
     ListItemText,
-    ListItemIcon
+    ListItemIcon,
+    FormControl,
+    RadioGroup,
+    FormControlLabel,
+    FormLabel,
+    Radio,
+    Checkbox
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import PlayCircleOutlineOutlinedIcon from '@material-ui/icons/PlayCircleOutlineOutlined';
 import { useHistory } from 'react-router-dom';
-import validation from '../../validation/validationFormFour';
+import validation from '../../validation/validationFormFive';
 
 const useStyles = makeStyles({
     formClass: {
@@ -23,40 +29,50 @@ const useStyles = makeStyles({
     }
 });
 
-function FormFour() {
+function FormFive() {
     const history = useHistory();
     const classes = useStyles();
 
     const [username, setUsername] = useState('');
-    const [fileInput, setFileInput] = useState('');
-    const [userEmail, setUserEmail] = useState('');
+    const [email, setEmail] = useState('');
+    const [gender, setGender] = useState('female');
+    const [buttonCheck, setButtonCheck] = useState({
+        checkedA: false,
+        checkedB: false
+    });
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState('');
 
     const handleChangeUserName = (e) => {
         setUsername(e.target.value);
     };
 
-    const handleFileInput = (e) => {
-        setFileInput(e.target.files[0]);
+    const handleChangeEmail = (e) => {
+        setEmail(e.target.value);
     };
 
-    const handleChangeEmail = (e) => {
-        setUserEmail(e.target.value);
+    const handleChangeRadio = (e) => {
+        setGender(e.target.value);
+    };
+
+    const handleChangeCheck = (e) => {
+        const { name, checked } = e.target;
+        setButtonCheck({ ...buttonCheck, [name]: checked });
     };
 
     const values = {
         username,
-        userEmail,
-        fileInput
+        email,
+        gender,
+        buttonCheck
     };
 
-    const submit = (data) => {
+    function submit(data) {
         history.push({
             pathname: '/success',
             state: data
         });
-    };
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -94,32 +110,50 @@ function FormFour() {
                             variant="filled"
                             name="userEmail"
                             type="email"
-                            value={userEmail}
+                            value={email}
                             onChange={handleChangeEmail}
                         />
-                        {errors.userEmail && <div className="error">{errors.userEmail}</div>}
+                        {errors.email && <div className="error">{errors.email}</div>}
                     </div>
                     <div className="my-3 center">
-                        <input
-                            accept="image/*"
-                            className={classes.fileUpload}
-                            id="contained-button-file"
-                            multiple
-                            type="file"
-                            onChange={handleFileInput}
+                        <FormControl component="fieldset">
+                            <FormLabel component="legend">Gender</FormLabel>
+                            <RadioGroup
+                                aria-label="gender"
+                                name="gender"
+                                value={gender}
+                                onChange={handleChangeRadio}>
+                                <FormControlLabel
+                                    value="female"
+                                    control={<Radio />}
+                                    label="Female"
+                                />
+                                <FormControlLabel value="male" control={<Radio />} label="Male" />
+                            </RadioGroup>
+                        </FormControl>
+                    </div>
+                    <div className="my-3 center">
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    checked={buttonCheck.checkedA}
+                                    onChange={handleChangeCheck}
+                                    name="checkedA"
+                                />
+                            }
+                            label="Option A"
                         />
-                        <label htmlFor="contained-button-file">
-                            <Button variant="contained" color="primary" component="span">
-                                Upload Photo
-                            </Button>
-                        </label>
-                        <input
-                            accept="image/*"
-                            className={classes.fileUpload}
-                            id="icon-button-file"
-                            type="file"
+                        <FormControlLabel
+                            control={
+                                <Checkbox
+                                    checked={buttonCheck.checkedB}
+                                    onChange={handleChangeCheck}
+                                    name="checkedB"
+                                />
+                            }
+                            label="Option B"
                         />
-                        {errors.fileInput && <div className="error">{errors.fileInput}</div>}
+                        {errors.buttonCheck && <div className="error">{errors.buttonCheck}</div>}
                     </div>
                     <div className="my-3 center">
                         <Button variant="contained" color="primary" type="submit">
@@ -147,7 +181,7 @@ function FormFour() {
                         <ListItemIcon>
                             <PlayCircleOutlineOutlinedIcon />
                         </ListItemIcon>
-                        <ListItemText primary="number of characters in between 3 and 20" />
+                        <ListItemText primary="number of characters in between 5 and 15" />
                     </ListItem>
                 </List>
 
@@ -171,25 +205,25 @@ function FormFour() {
 
                 <List component="nav" aria-label="main mailbox folders">
                     <Typography variant="h6" component="p">
-                        fileInput:
+                        buttonCheck:
                     </Typography>
                     <ListItem>
                         <ListItemIcon>
                             <PlayCircleOutlineOutlinedIcon />
                         </ListItemIcon>
-                        <ListItemText primary="is required" />
+                        <ListItemText primary="At least one check box must be checked" />
                     </ListItem>
+                </List>
+
+                <List component="nav" aria-label="main mailbox folders">
+                    <Typography variant="h6" component="p">
+                        gender:
+                    </Typography>
                     <ListItem>
                         <ListItemIcon>
                             <PlayCircleOutlineOutlinedIcon />
                         </ListItemIcon>
-                        <ListItemText primary="file size between 5000 and 200000" />
-                    </ListItem>
-                    <ListItem>
-                        <ListItemIcon>
-                            <PlayCircleOutlineOutlinedIcon />
-                        </ListItemIcon>
-                        <ListItemText primary="file type can be jpg, jpeg, png" />
+                        <ListItemText primary="No validation" />
                     </ListItem>
                 </List>
             </Grid>
@@ -197,4 +231,4 @@ function FormFour() {
     );
 }
 
-export default FormFour;
+export default FormFive;

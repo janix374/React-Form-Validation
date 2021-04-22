@@ -3,8 +3,7 @@ export default (fileProp, obj) => {
     for (const prop in obj) {
         arrayPropertire.push(prop);
     }
-    const found = arrayPropertire.find((element) => element === 'size');
-    if (found === fileProp) {
+    if (arrayPropertire.find((element) => element === fileProp)) {
         return true;
     }
     return false;

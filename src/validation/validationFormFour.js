@@ -1,13 +1,18 @@
 import { validationField, clean } from './validationLib/validationField';
 import utilities from './validationLib/utilities';
 
-const { isRequired, isLengthRange, fileRangeSizeValidation } = utilities;
+const {
+    isRequired,
+    isLengthRange,
+    fileRangeSizeValidation,
+    fileTypeValidation,
+    isEmailValid
+} = utilities;
 
-// // validation for FormFour component form
+// validation for FormFour component form
 function validation(values) {
-    const { username, fileInput } = values;
+    const { username, userEmail, fileInput } = values;
 
-    console.log(values);
     const fields = {};
 
     fields.username = validationField(username, [
@@ -15,9 +20,12 @@ function validation(values) {
         isLengthRange(3, 20)
     ]);
 
+    fields.userEmail = validationField(userEmail, [isRequired(), isEmailValid()]);
+
     fields.fileInput = validationField(fileInput, [
         isRequired('Upload file is required'),
-        fileRangeSizeValidation(63000, 80000)
+        fileRangeSizeValidation(5000, 200000),
+        fileTypeValidation(['jpg', 'jpeg', 'png'])
     ]);
 
     const errors = clean(fields);

@@ -10,6 +10,7 @@ import FormSuccess from './components/forms/FormSuccess';
 import NotFoundPage from './components/NotFoundPage';
 import FormThree from './components/forms/FormThree';
 import FormFour from './components/forms/FormFour';
+import FormFive from './components/forms/FormFive';
 
 const theme = createMuiTheme({
     palette: {
@@ -39,6 +40,9 @@ function App() {
                         </Route>
                         <Route path="/formfour">
                             <FormFour />
+                        </Route>
+                        <Route path="/formfive">
+                            <FormFive />
                         </Route>
                         <Route path="/success">
                             <FormSuccess />

@@ -17,15 +17,22 @@ function FormSuccess(props) {
             <Grid item xs={12}>
                 <Box>
                     <Typography variant="h3" component="p">
-                        Your request!
+                        All fields have passed validation
                     </Typography>
                 </Box>
             </Grid>
             <Grid item xs={6}>
                 <Box>
                     {Object.keys(formState).map((keyName, keyIndex) => {
+                        if (typeof formState[keyName] === 'object') {
+                            return (
+                                <Typography variant="body1" component="p" key={keyName}>
+                                    {keyName}:'File'
+                                </Typography>
+                            );
+                        }
                         return (
-                            <Typography variant="body1" component="p" key={keyIndex}>
+                            <Typography variant="body1" component="p" key={keyName}>
                                 {keyName}:{formState[keyName]}
                             </Typography>
                         );
