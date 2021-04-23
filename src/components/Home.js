@@ -210,7 +210,7 @@ const Home = () => {
                 </Grid>
                 <Grid item xs={12} className="p-1">
                     <Typography variant="body1" component="p">
-                        <span className="for-rules-class">IsOneButtonChecked(message)</span> At
+                        <span className="for-rules-class">IsOneCheckboxChecked(message)</span> At
                         least one check box must be checked.
                     </Typography>
                     <Typography variant="body1" component="p">

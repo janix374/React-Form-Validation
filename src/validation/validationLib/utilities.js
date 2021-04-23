@@ -9,7 +9,7 @@ import isRegExValidation from './validateFunction/isRegExValidation';
 import fileMaxSizeValidation from './validateFunction/fileMaxSizeValidation';
 import fileRangeSizeValidation from './validateFunction/fileRangeSizeValidation';
 import fileTypeValidation from './validateFunction/fileTypeValidation';
-import IsOneButtonChecked from './validateFunction/IsOneButtonChecked';
+import IsOneCheckboxChecked from './validateFunction/IsOneCheckboxChecked';
 
 /**
  * validationObject
@@ -63,7 +63,7 @@ import IsOneButtonChecked from './validateFunction/IsOneButtonChecked';
   allowedExtensions - array of file extensions which can be uploaded
   message - Optional, you can add your own error message
  
- *  IsOneButtonChecked(message)
+ *  IsOneCheckboxChecked(message)
     At least one check box must be checked.
     message - Optional, you can add your own error message
 
@@ -81,7 +81,7 @@ const utilities = {
     fileMaxSizeValidation,
     fileRangeSizeValidation,
     fileTypeValidation,
-    IsOneButtonChecked
+    IsOneCheckboxChecked
 };
 
 export default utilities;

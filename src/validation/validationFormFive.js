@@ -1,7 +1,7 @@
 import { validationField, clean } from './validationLib/validationField';
 import utilities from './validationLib/utilities';
 
-const { isRequired, isLengthRange, isEmailValid, IsOneButtonChecked } = utilities;
+const { isRequired, isLengthRange, isEmailValid, IsOneCheckboxChecked } = utilities;
 
 // validation for FormFour component form
 function validation(values) {
@@ -16,7 +16,7 @@ function validation(values) {
 
     fields.email = validationField(email, [isRequired(), isEmailValid()]);
 
-    fields.buttonCheck = validationField(buttonCheck, [IsOneButtonChecked()]);
+    fields.buttonCheck = validationField(buttonCheck, [IsOneCheckboxChecked()]);
 
     const errors = clean(fields);
     return errors;
